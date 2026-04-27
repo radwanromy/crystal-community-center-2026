@@ -1,11 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',      // This is the most important line
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  output: 'export',
   images: {
-    unoptimized: true,   // GitHub Pages doesn't support Next.js image optimization
+    unoptimized: true,
   },
-  // You can keep your dev origin if you need it for local testing
-  allowedDevOrigins: ['192.168.94.31'], 
+  // Ensure the basePath is empty so it works at the root of crystalccbd.site
+  basePath: '', 
+  // Optional: helps with CSS/JS paths on some custom domain setups
+  assetPrefix: '', 
 };
 
 export default nextConfig;
