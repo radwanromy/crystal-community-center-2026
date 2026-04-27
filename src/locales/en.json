@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "programs": "Programs",
+    "facilities": "Facilities",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "ttsOn": "🔊 Turn Off Reading",
+    "ttsOff": "🔈 Read on Hover"
+  },
+  "hero": {
+    "title": "Crystal Community Center",
+    "subtitle": "The Perfect Venue for Your Cherished Moments",
+    "mission": "Established in 2022, we provide premium facilities for weddings, meetings, and celebrations in the heart of Gobindaganj.",
+    "cta1": "View Facilities",
+    "cta2": "Book Now"
+  },
+  "about": {
+    "title": "About Us",
+    "history": "Founded in 2022 by Abu Fattab Shah Md Eleas, Crystal Community Center has successfully hosted over 100+ events. Our mission is to provide an elegant, hassle-free environment for all your special occasions.",
+    "owner": "Abu Fattab Shah Md Eleas (Owner, Former Sub-Assistant Agriculture Officer)"
+  },
+  "programs": {
+    "title": "Programs & Services",
+    "wedding": "Weddings",
+    "weddingDesc": "Complete wedding venue services with customizable decoration.",
+    "meeting": "Meetings",
+    "meetingDesc": "Professional setups for corporate meetings and seminars.",
+    "conference": "Conferences",
+    "conferenceDesc": "Large scale conference facilities with audio-visual support.",
+    "celebration": "Celebrations",
+    "celebrationDesc": "Birthdays, anniversaries, and special milestone events."
+  },
+  "facilities": {
+    "title": "Our Facilities",    
+    "aircon": "Full Hall Air Conditioning — climate-controlled comfort throughout the entire venue.",
+    "auditorium": "Main Auditorium (350 Seats)",
+    "rooftop": "Spacious Rooftop Area",
+    "prayer": "Masjid (In front of center)",
+    "cafeteria": "Crystal Cafe (Coffee & Juice Vending)",
+    "cooking": "Large Cooking Space (3 Burners + Washing area)",
+    "layout": "3rd Floor: Main Hall, Stages, Reception. 4th Floor: Rooftop, Cooking.",
+    "washrooms": "4 Washrooms (2 on 3rd floor, 2 on 4th floor)",
+    "extras": "Ample Storage, Large Utensils included. Decoration available.",
+    "airc": " Total Air Conditioning Capacity of Cooling (BTU)：16,800."
+  },
+  "gallery": {
+    "title": "Photo Gallery",
+    "subtitle": "Glimpses of our successful events and beautiful setups."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "address": "Opposite Side of PEKS Eye Hospital, Gobindaganj, Gobindaganj- 5740, District: Gaibandha, Division: Rangpur, Bangladesh",
+    "phone": "+880 1915-762486 / +880 1797-944561",
+    "email": "crystalcc2022@gmail.com",
+    "hours": "Opening Hours: 24/7",
+    "formName": "Name",
+    "formEmail": "Email",
+    "formMessage": "Message",
+    "formSubmit": "Send Message"
+  }
+}

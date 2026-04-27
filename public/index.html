@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Crystal Center | Premier Event Venue in Gobindaganj</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    .font-serif {
+      font-family: 'Playfair Display', 'Times New Roman', serif;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F4EFEA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C5A059;
+      border-radius: 10px;
+    }
+    .hover-lift {
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+    }
+    .lang-btn {
+      transition: all 0.3s ease;
+    }
+    [data-lang="bn"] .lang-en,
+    [data-lang="en"] .lang-bn {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-[#FDFBF7] text-[#2D2B2A] antialiased" data-lang="en">
+
+  <main class="relative overflow-x-hidden">
+    
+    <!-- NAVIGATION -->
+    <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-5 bg-[#FDFBF7]/80 backdrop-blur-md border-b border-[#C5A059]/10 shadow-sm">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 flex justify-between items-center">
+        <a href="#home" class="flex items-center gap-2 group">
+          <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#C5A059] to-[#E8D5A5] flex items-center justify-center shadow-md">
+            <span class="text-white font-serif font-bold text-lg">CC</span>
+          </div>
+          <span class="text-2xl font-serif font-bold tracking-tight text-[#2D2B2A] group-hover:text-[#C5A059] transition">Crystal <span class="text-[#C5A059]">Center</span></span>
+        </a>
+
+        <nav class="hidden lg:flex gap-10">
+          <a href="#home" class="text-sm font-medium text-[#4a4540] hover:text-[#C5A059] transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#C5A059] after:transition-all after:duration-300 hover:after:w-full">
+            <span class="lang-en">Home</span><span class="lang-bn">হোম</span>
+          </a>
+          <a href="#about" class="text-sm font-medium text-[#4a4540] hover:text-[#C5A059] transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#C5A059] after:transition-all after:duration-300 hover:after:w-full">
+            <span class="lang-en">About</span><span class="lang-bn">আমাদের সম্পর্কে</span>
+          </a>
+          <a href="#facilities" class="text-sm font-medium text-[#4a4540] hover:text-[#C5A059] transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#C5A059] after:transition-all after:duration-300 hover:after:w-full">
+            <span class="lang-en">Facilities</span><span class="lang-bn">সুবিধাসমূহ</span>
+          </a>
+          <a href="#packages" class="text-sm font-medium text-[#4a4540] hover:text-[#C5A059] transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#C5A059] after:transition-all after:duration-300 hover:after:w-full">
+            <span class="lang-en">Packages</span><span class="lang-bn">প্যাকেজ</span>
+          </a>
+          <a href="#gallery" class="text-sm font-medium text-[#4a4540] hover:text-[#C5A059] transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#C5A059] after:transition-all after:duration-300 hover:after:w-full">
+            <span class="lang-en">Gallery</span><span class="lang-bn">গ্যালারি</span>
+          </a>
+          <a href="#reviews" class="text-sm font-medium text-[#4a4540] hover:text-[#C5A059] transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#C5A059] after:transition-all after:duration-300 hover:after:w-full">
+            <span class="lang-en">Reviews</span><span class="lang-bn">রিভিউ</span>
+          </a>
+          <a href="#contact" class="text-sm font-medium text-[#4a4540] hover:text-[#C5A059] transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#C5A059] after:transition-all after:duration-300 hover:after:w-full">
+            <span class="lang-en">Contact</span><span class="lang-bn">যোগাযোগ</span>
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <button id="langToggle" class="bg-[#C5A059] text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#b08e4e] transition-all shadow-md">
+            <span class="lang-en">বাংলা</span>
+            <span class="lang-bn">English</span>
+          </button>
+          <button id="menuBtn" class="lg:hidden text-[#2D2B2A] focus:outline-none" aria-label="Menu">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="fixed inset-0 bg-[#FDFBF7] z-40 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
+        <div class="flex justify-end p-6">
+          <button id="closeMenuBtn" class="text-3xl text-[#2D2B2A]">&times;</button>
+        </div>
+        <nav class="flex flex-col items-center gap-7 text-xl font-serif mt-12">
+          <a href="#home" class="hover:text-[#C5A059] transition"><span class="lang-en">Home</span><span class="lang-bn">হোম</span></a>
+          <a href="#about" class="hover:text-[#C5A059] transition"><span class="lang-en">About</span><span class="lang-bn">আমাদের সম্পর্কে</span></a>
+          <a href="#facilities" class="hover:text-[#C5A059] transition"><span class="lang-en">Facilities</span><span class="lang-bn">সুবিধাসমূহ</span></a>
+          <a href="#packages" class="hover:text-[#C5A059] transition"><span class="lang-en">Packages</span><span class="lang-bn">প্যাকেজ</span></a>
+          <a href="#gallery" class="hover:text-[#C5A059] transition"><span class="lang-en">Gallery</span><span class="lang-bn">গ্যালারি</span></a>
+          <a href="#reviews" class="hover:text-[#C5A059] transition"><span class="lang-en">Reviews</span><span class="lang-bn">রিভিউ</span></a>
+          <a href="#contact" class="hover:text-[#C5A059] transition"><span class="lang-en">Contact</span><span class="lang-bn">যোগাযোগ</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center pt-28 pb-20">
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80" alt="Wedding decor" class="w-full h-full object-cover brightness-[0.85]"/>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#FDFBF7]/90 via-[#FDFBF7]/60 to-transparent"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
+        <div class="max-w-2xl space-y-7">
+          <div class="inline-flex items-center gap-2 bg-white/40 backdrop-blur-sm px-4 py-1.5 rounded-full w-fit border border-white/30">
+            <span class="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse"></span>
+            <span class="text-xs font-semibold tracking-wider text-[#C5A059] uppercase">
+              <span class="lang-en">Premium Venue</span>
+              <span class="lang-bn">প্রিমিয়াম ভেন্যু</span>
+            </span>
+          </div>
+          <h1 class="text-6xl md:text-7xl lg:text-8xl font-serif font-bold leading-[1.15] tracking-tight text-[#2D2B2A]">
+            <span class="lang-en">Where Moments<br/>Become <span class="text-[#C5A059]">Legacy</span></span>
+            <span class="lang-bn">মুহূর্তগুলি হয়ে উঠুক<br/><span class="text-[#C5A059]">অমূল্য স্মৃতি</span></span>
+          </h1>
+          <p class="text-xl text-[#4a4540] max-w-xl leading-relaxed">
+            <span class="lang-en">Experience timeless elegance, world-class service & unmatched hospitality in the heart of Gobindaganj.</span>
+            <span class="lang-bn">গোবিন্দগঞ্জের কেন্দ্রস্থলে নিরবধি elegance, বিশ্বমানের সেবা ও অতুলনীয় আতিথেয়তা অনুভব করুন।</span>
+          </p>
+          <div class="flex flex-wrap gap-5 pt-4">
+            <a href="#contact" class="bg-[#C5A059] text-white px-8 py-3.5 rounded-full font-semibold shadow-lg shadow-[#C5A059]/25 hover:bg-[#b48a42] transition-all hover:scale-105 active:scale-95">
+              <span class="lang-en">Reserve Your Date →</span>
+              <span class="lang-bn">তারিখ সংরক্ষণ করুন →</span>
+            </a>
+            <a href="#facilities" class="border-2 border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white px-8 py-3.5 rounded-full font-semibold transition-all">
+              <span class="lang-en">Explore Spaces</span>
+              <span class="lang-bn">স্থানগুলো দেখুন</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-28 bg-[#F9F6F0]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-7 order-2 lg:order-1">
+          <div class="space-y-2">
+            <span class="text-[#C5A059] font-semibold tracking-wider uppercase text-sm">
+              <span class="lang-en">Our Story</span>
+              <span class="lang-bn">আমাদের গল্প</span>
+            </span>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-[#2D2B2A]">
+              <span class="lang-en">A Vision of Celebration</span>
+              <span class="lang-bn">উদযাপনের এক স্বপ্ন</span>
+            </h2>
+            <div class="w-16 h-0.5 bg-[#C5A059] rounded-full mt-2"></div>
+          </div>
+          <p class="text-[#5b5550] text-lg leading-relaxed">
+            <span class="lang-en">Founded in 2022 by <span class="font-semibold text-[#2D2B2A]">Abu Fattab Shah Md Eleas</span>, Crystal Center was born from a dream to redefine hospitality. We blend architectural elegance with heartfelt service to craft unforgettable experiences.</span>
+            <span class="lang-bn"><span class="font-semibold text-[#2D2B2A]">আবু ফাত্তাব শাহ মোঃ ইলিয়াস</span> কর্তৃক ২০২২ সালে প্রতিষ্ঠিত, ক্রিস্টাল সেন্টার আতিথেয়তাকে পুনর্ব্যাখ্যা করার স্বপ্ন থেকে জন্ম নিয়েছে। আমরা স্থাপত্যের elegance ও আন্তরিক সেবার সমন্বয় ঘটিয়ে অমর করে রাখার মতো অভিজ্ঞতা তৈরি করি।</span>
+          </p>
+          <p class="text-[#5b5550] text-lg leading-relaxed">
+            <span class="lang-en">Over 120+ successful weddings, corporate meets, and cultural galas — our commitment to perfection makes every event seamless, joyful, and uniquely yours.</span>
+            <span class="lang-bn">১২০টিরও বেশি সফল বিবাহ, কর্পোরেট মিটিং এবং সাংস্কৃতিক অনুষ্ঠান — perfection-এর প্রতি আমাদের অঙ্গীকার প্রতিটি ইভেন্টকে নির্বিঘ্ন, আনন্দময় এবং আপনার মতোই অনন্য করে তোলে।</span>
+          </p>
+          <div class="pt-3 border-l-4 border-[#C5A059] pl-6">
+            <p class="font-serif text-2xl text-[#2D2B2A] font-semibold">Abu Fattab Shah Md Eleas</p>
+            <p class="text-[#C5A059] font-medium text-sm tracking-wide">
+              <span class="lang-en">Founder & Creative Director</span>
+              <span class="lang-bn">প্রতিষ্ঠাতা ও সৃজনশীল পরিচালক</span>
+            </p>
+          </div>
+        </div>
+        <div class="relative h-[500px] order-1 lg:order-2">
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80" alt="Event hall" class="absolute top-0 right-0 w-4/5 h-4/5 object-cover rounded-3xl shadow-2xl ring-4 ring-white/70"/>
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80" alt="Celebration" class="absolute bottom-0 left-0 w-3/5 h-3/5 object-cover rounded-3xl shadow-2xl ring-4 ring-[#F9F6F0]"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACILITIES SECTION -->
+    <section id="facilities" class="py-28 bg-[#FDFBF7]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="text-center max-w-2xl mx-auto mb-20">
+          <span class="text-[#C5A059] font-semibold tracking-wider uppercase text-sm">
+            <span class="lang-en">Premium Amenities</span>
+            <span class="lang-bn">প্রিমিয়াম সুবিধাসমূহ</span>
+          </span>
+          <h2 class="text-4xl md:text-5xl font-serif font-bold mt-2 text-[#2D2B2A]">
+            <span class="lang-en">World-Class Facilities</span>
+            <span class="lang-bn">বিশ্বমানের সুবিধাসমূহ</span>
+          </h2>
+          <div class="w-20 h-[2px] bg-[#C5A059] mx-auto mt-4"></div>
+          <p class="text-[#6B655E] mt-5 text-lg">
+            <span class="lang-en">Curated for comfort, designed for grandeur.</span>
+            <span class="lang-bn">আরামের জন্য সাজানো, grandeur-এর জন্য ডিজাইন করা।</span>
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-3xl shadow-sm border border-[#F1EAE2] hover:shadow-xl transition-all duration-500 group hover:border-[#C5A059]/30">
+            <div class="w-14 h-14 rounded-2xl bg-[#C5A059]/10 flex items-center justify-center mb-7 group-hover:bg-[#C5A059] transition-colors">
+              <svg class="w-7 h-7 text-[#C5A059] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+            </div>
+            <h3 class="text-2xl font-serif font-bold mb-3"><span class="lang-en">Grand Auditorium</span><span class="lang-bn">গ্র্যান্ড অডিটোরিয়াম</span></h3>
+            <p class="text-[#6B655E]"><span class="lang-en">350 guests, state-of-the-art acoustics, climate-controlled elegance.</span><span class="lang-bn">৩৫০ অতিথি, অত্যাধুনিক অ্যাকোস্টিক, জলবায়ু নিয়ন্ত্রিত অভিজাত পরিবেশ।</span></p>
+          </div>
+          <div class="bg-white p-8 rounded-3xl shadow-sm border border-[#F1EAE2] hover:shadow-xl transition-all group">
+            <div class="w-14 h-14 rounded-2xl bg-[#C5A059]/10 flex items-center justify-center mb-7 group-hover:bg-[#C5A059] transition-colors">
+              <svg class="w-7 h-7 text-[#C5A059] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+            </div>
+            <h3 class="text-2xl font-serif font-bold mb-3"><span class="lang-en">Sky Rooftop</span><span class="lang-bn">স্কাই রুফটপ</span></h3>
+            <p class="text-[#6B655E]"><span class="lang-en">Open-air panoramic views, ideal for sunset receptions and starlit parties.</span><span class="lang-bn">খোলা আকাশের প্যানোরামিক ভিউ, সূর্যাস্তের রিসেপশন এবং তারামাখা পার্টির জন্য আদর্শ।</span></p>
+          </div>
+          <div class="bg-white p-8 rounded-3xl shadow-sm border border-[#F1EAE2] hover:shadow-xl transition-all group">
+            <div class="w-14 h-14 rounded-2xl bg-[#C5A059]/10 flex items-center justify-center mb-7 group-hover:bg-[#C5A059] transition-colors">
+              <svg class="w-7 h-7 text-[#C5A059] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+            </div>
+            <h3 class="text-2xl font-serif font-bold mb-3"><span class="lang-en">Gourmet Kitchen</span><span class="lang-bn">গুরমেট কিচেন</span></h3>
+            <p class="text-[#6B655E]"><span class="lang-en">Commercial-grade setup with 3 high-power burners, massive prep zones.</span><span class="lang-bn">৩টি হাই-পাওয়ার বার্নার সহ বাণিজ্যিক-গ্রেড সেটআপ, বিশাল প্রস্তুতি এলাকা।</span></p>
+          </div>
+          <div class="bg-white p-8 rounded-3xl shadow-sm border border-[#F1EAE2] hover:shadow-xl transition-all group">
+            <div class="w-14 h-14 rounded-2xl bg-[#C5A059]/10 flex items-center justify-center mb-7 group-hover:bg-[#C5A059] transition-colors">
+              <svg class="w-7 h-7 text-[#C5A059] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0z"/></svg>
+            </div>
+            <h3 class="text-2xl font-serif font-bold mb-3"><span class="lang-en">Bridal & VIP Suites</span><span class="lang-bn">ব্রাইডাল ও ভিআইপি স্যুট</span></h3>
+            <p class="text-[#6B655E]"><span class="lang-en">Elegant private rooms for dressing, makeup, and quiet moments.</span><span class="lang-bn">ড্রেসিং, মেকআপ এবং শান্ত মুহূর্তের জন্য অভিজাত ব্যক্তিগত কক্ষ।</span></p>
+          </div>
+          <div class="bg-white p-8 rounded-3xl shadow-sm border border-[#F1EAE2] hover:shadow-xl transition-all group">
+            <div class="w-14 h-14 rounded-2xl bg-[#C5A059]/10 flex items-center justify-center mb-7 group-hover:bg-[#C5A059] transition-colors">
+              <svg class="w-7 h-7 text-[#C5A059] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.22-1.113-.616-1.53l-2.5-2.5c-.406-.406-.956-.635-1.53-.635H5.25a2.25 2.25 0 00-2.25 2.25v7.5"/></svg>
+            </div>
+            <h3 class="text-2xl font-serif font-bold mb-3"><span class="lang-en">Prayer & Washrooms</span><span class="lang-bn">প্রার্থনা ও ওয়াশরুম</span></h3>
+            <p class="text-[#6B655E]"><span class="lang-en">4 premium restrooms and a mosque just steps from the entrance.</span><span class="lang-bn">৪টি প্রিমিয়াম ওয়াশরুম এবং প্রবেশদ্বার থেকে几步 দূরে একটি মসজিদ।</span></p>
+          </div>
+          <div class="bg-white p-8 rounded-3xl shadow-sm border border-[#F1EAE2] hover:shadow-xl transition-all group">
+            <div class="w-14 h-14 rounded-2xl bg-[#C5A059]/10 flex items-center justify-center mb-7 group-hover:bg-[#C5A059] transition-colors">
+              <svg class="w-7 h-7 text-[#C5A059] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39-9.75L18 2.25M4.5 5.25L9 2.25m9 15.75H6m3-3L4.5 15.75"/></svg>
+            </div>
+            <h3 class="text-2xl font-serif font-bold mb-3"><span class="lang-en">Crystal Cafe</span><span class="lang-bn">ক্রিস্টাল ক্যাফে</span></h3>
+            <p class="text-[#6B655E]"><span class="lang-en">In-house coffee, juice bar, and refreshment lounge for guests.</span><span class="lang-bn">অভ্যন্তরীণ কফি, জুস বার এবং অতিথিদের জন্য রিফ্রেশমেন্ট লাউঞ্জ।</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES SECTION -->
+    <section id="packages" class="py-28 bg-gradient-to-b from-[#F9F6F0] to-[#FDFBF7]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-serif font-bold"><span class="lang-en">Tailored Experiences</span><span class="lang-bn">পছন্দমতো অভিজ্ঞতা</span></h2>
+          <div class="w-20 h-[2px] bg-[#C5A059] mx-auto my-4"></div>
+          <p class="text-[#6B655E] text-lg"><span class="lang-en">Custom packages for weddings, corporate, and social celebrations.</span><span class="lang-bn">বিবাহ, কর্পোরেট এবং সামাজিক উদযাপনের জন্য কাস্টম প্যাকেজ।</span></p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
+            <div class="h-64 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"/><div class="absolute inset-0 bg-black/20"></div></div>
+            <div class="p-7"><h3 class="text-2xl font-serif font-bold"><span class="lang-en">Royal Wedding</span><span class="lang-bn">রাজকীয় বিবাহ</span></h3><p class="text-[#6B655E] my-3"><span class="lang-en">Full decor, stage lighting, bridal suite, dedicated catering zone.</span><span class="lang-bn">সম্পূর্ণ সাজসজ্জা, স্টেজ লাইটিং, ব্রাইডাল স্যুট, ডেডিকেটেড ক্যাটারিং জোন।</span></p><span class="text-[#C5A059] font-semibold"><span class="lang-en">Custom quote</span><span class="lang-bn">কাস্টম কোট</span></span><div class="mt-4"><a href="#contact" class="inline-flex items-center gap-1 text-sm font-semibold border-b border-[#C5A059]"><span class="lang-en">Inquire →</span><span class="lang-bn">অনুসন্ধান করুন →</span></a></div></div>
+          </div>
+          <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
+            <div class="h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1505366518450-28240dda9ea2?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-105 transition"/></div>
+            <div class="p-7"><h3 class="text-2xl font-serif font-bold"><span class="lang-en">Corporate Summit</span><span class="lang-bn">কর্পোরেট সামিট</span></h3><p class="text-[#6B655E] my-3"><span class="lang-en">AV equipment, VIP seating, refreshments, high-speed wifi.</span><span class="lang-bn">এভি সরঞ্জাম, ভিআইপি আসন, রিফ্রেশমেন্ট, হাই-স্পিড ওয়াইফাই।</span></p><span class="text-[#C5A059] font-semibold"><span class="lang-en">Day packages</span><span class="lang-bn">দিনব্যাপী প্যাকেজ</span></span><div class="mt-4"><a href="#contact" class="inline-flex items-center gap-1 text-sm font-semibold border-b border-[#C5A059]"><span class="lang-en">Contact sales →</span><span class="lang-bn">বিক্রয় বিভাগে যোগাযোগ করুন →</span></a></div></div>
+          </div>
+          <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
+            <div class="h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1530103862676-de889f4af7bd?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-105 transition"/></div>
+            <div class="p-7"><h3 class="text-2xl font-serif font-bold"><span class="lang-en">Joyful Gatherings</span><span class="lang-bn">আনন্দময় সমাবেশ</span></h3><p class="text-[#6B655E] my-3"><span class="lang-en">Birthdays, anniversaries, baby showers — customizable decor.</span><span class="lang-bn">জন্মদিন, বার্ষিকী, বেবি শাওয়ার — কাস্টমাইজযোগ্য সাজসজ্জা।</span></p><span class="text-[#C5A059] font-semibold"><span class="lang-en">Flexible pricing</span><span class="lang-bn">নমনীয় মূল্য</span></span><div class="mt-4"><a href="#contact" class="inline-flex items-center gap-1 text-sm font-semibold border-b border-[#C5A059]"><span class="lang-en">Book now →</span><span class="lang-bn">এখনই বুক করুন →</span></a></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-28 bg-[#FDFBF7]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="text-center mb-14"><h2 class="text-4xl font-serif font-bold"><span class="lang-en">Captured Moments</span><span class="lang-bn">ধরা পড়া মুহূর্তগুলি</span></h2><div class="w-20 h-[2px] bg-[#C5A059] mx-auto mt-3"></div></div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+          <div class="rounded-2xl overflow-hidden shadow-md"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80" class="w-full h-64 object-cover hover:scale-105 transition duration-500"/></div>
+          <div class="rounded-2xl overflow-hidden shadow-md"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&q=80" class="w-full h-64 object-cover hover:scale-105 transition"/></div>
+          <div class="rounded-2xl overflow-hidden shadow-md"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80" class="w-full h-64 object-cover hover:scale-105 transition"/></div>
+          <div class="rounded-2xl overflow-hidden shadow-md"><img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&q=80" class="w-full h-64 object-cover hover:scale-105 transition"/></div>
+          <div class="rounded-2xl overflow-hidden shadow-md"><img src="https://images.unsplash.com/photo-1522413452208-996906271241?auto=format&fit=crop&q=80" class="w-full h-64 object-cover hover:scale-105 transition"/></div>
+          <div class="rounded-2xl overflow-hidden shadow-md"><img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&q=80" class="w-full h-64 object-cover hover:scale-105 transition"/></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews" class="py-28 bg-[#F9F6F0] relative">
+      <div class="absolute -top-10 -left-10 text-[300px] text-[#C5A059] opacity-5 font-serif leading-none">"</div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+        <div class="text-center mb-16"><span class="text-[#C5A059] font-semibold uppercase text-sm"><span class="lang-en">Testimonials</span><span class="lang-bn">মতামত</span></span><h2 class="text-4xl font-serif font-bold"><span class="lang-en">Trusted by Hundreds</span><span class="lang-bn">শত শত মানুষ বিশ্বাস করে</span></h2></div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-md relative"><span class="text-6xl text-[#C5A059]/20 absolute top-2 left-4 font-serif">“</span><p class="relative z-2 text-[#4a4540] italic"><span class="lang-en">The rooftop was magical, and the staff's coordination made our big day seamless. Absolutely world-class.</span><span class="lang-bn">ছাদটি যাদুকরী ছিল, এবং স্টাফদের সমন্বয় আমাদের বড় দিনটিকে নির্বিঘ্ন করেছে। সত্যিই বিশ্বমানের।</span></p><p class="font-bold mt-4">— Aisha & Rahman</p></div>
+          <div class="bg-white p-8 rounded-2xl shadow-md relative"><span class="text-6xl text-[#C5A059]/20 absolute top-2 left-4 font-serif">“</span><p class="relative z-2 text-[#4a4540] italic"><span class="lang-en">Best venue in Gobindaganj! The commercial kitchen allowed our caterers to perform at peak. Stunning decor.</span><span class="lang-bn">গোবিন্দগঞ্জের সেরা ভেন্যু! বাণিজ্যিক রান্নাঘর আমাদের ক্যাটারারদের পূর্ণ সম্ভাবনায় কাজ করতে দিয়েছে। চমৎকার সাজসজ্জা।</span></p><p class="font-bold mt-4">— Mahmudul Hasan</p></div>
+          <div class="bg-white p-8 rounded-2xl shadow-md relative"><span class="text-6xl text-[#C5A059]/20 absolute top-2 left-4 font-serif">“</span><p class="relative z-2 text-[#4a4540] italic"><span class="lang-en">Seamless corporate event. Modern amenities, professional support, and the Crystal Cafe was a hit.</span><span class="lang-bn">নির্বিঘ্ন কর্পোরেট ইভেন্ট। আধুনিক সুবিধা, পেশাদার সহায়তা, এবং ক্রিস্টাল ক্যাফে ছিল দারুণ হিট।</span></p><p class="font-bold mt-4">— TechNova Solutions</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-28 bg-[#FDFBF7]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-5 gap-12 bg-white rounded-3xl shadow-2xl overflow-hidden">
+          <div class="lg:col-span-2 bg-[#2D2B2A] p-8 lg:p-10 text-white relative">
+            <div class="absolute top-0 right-0 w-56 h-56 bg-[#C5A059] opacity-10 rounded-full blur-2xl"></div>
+            <h3 class="text-3xl font-serif font-bold mb-4"><span class="lang-en">Connect With Us</span><span class="lang-bn">আমাদের সাথে যোগাযোগ করুন</span></h3>
+            <p class="text-stone-300 mb-8"><span class="lang-en">We respond within 2 hours. Let's craft your perfect event.</span><span class="lang-bn">আমরা ২ ঘন্টার মধ্যে সাড়া দিই। আপনার নিখুঁত ইভেন্টটি তৈরি করি।</span></p>
+            <div class="space-y-5">
+              <div class="flex gap-4">
+                <svg class="w-6 h-6 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+                <div><p class="font-semibold">Gobindaganj-5740, Gaibandha, Rangpur</p></div>
+              </div>
+              <div class="flex gap-4">
+                <svg class="w-6 h-6 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                <div><p>+880 1915-762486 <br/> +880 1797-944561</p></div>
+              </div>
+              <div class="flex gap-4">
+                <svg class="w-6 h-6 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+                <div><p>crystalcc2022@gmail.com</p></div>
+              </div>
+            </div>
+            <div class="mt-8 h-40 rounded-xl overflow-hidden">
+              <iframe class="w-full h-full grayscale contrast-125" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57540.35338101419!2d89.3563994!3d25.1384067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fcd42d54e58b1f%3A0xb35a96323cf100cb!2sGobindaganj%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="lg:col-span-3 p-8 lg:p-12">
+            <h2 class="text-3xl font-serif font-bold text-[#2D2B2A] mb-2"><span class="lang-en">Request Availability</span><span class="lang-bn">উপলব্ধতা জানতে চান</span></h2>
+            <p class="text-[#6B655E] mb-6"><span class="lang-en">Tell us your vision, and we'll craft a personalized proposal.</span><span class="lang-bn">আপনার স্বপ্নটি জানান, আমরা একটি ব্যক্তিগতকৃত প্রস্তাব তৈরি করব।</span></p>
+            <form id="bookingForm" onsubmit="event.preventDefault(); alert(lang === 'en' ? '✨ Thank you! Our team will contact you within 24 hours.' : '✨ ধন্যবাদ! আমাদের টিম ২৪ ঘন্টার মধ্যে আপনার সাথে যোগাযোগ করবে।'); this.reset();">
+              <div class="grid md:grid-cols-2 gap-5 mb-5">
+                <input type="text" placeholder="Full name / পুরো নাম" class="border border-[#E8D5A5] rounded-xl px-5 py-3 bg-[#FEFAF5] focus:ring-2 focus:ring-[#C5A059] outline-none">
+                <input type="tel" placeholder="Phone number / ফোন নম্বর" class="border border-[#E8D5A5] rounded-xl px-5 py-3 bg-[#FEFAF5] focus:ring-2 focus:ring-[#C5A059] outline-none">
+              </div>
+              <div class="grid md:grid-cols-2 gap-5 mb-5">
+                <select class="border border-[#E8D5A5] rounded-xl px-5 py-3 bg-[#FEFAF5] focus:ring-2 focus:ring-[#C5A059] outline-none">
+                  <option value="wedding"><span class="lang-en">Wedding / Reception</span><span class="lang-bn">বিবাহ / রিসেপশন</span></option>
+                  <option value="corporate"><span class="lang-en">Corporate Event</span><span class="lang-bn">কর্পোরেট ইভেন্ট</span></option>
+                  <option value="birthday"><span class="lang-en">Birthday Party</span><span class="lang-bn">জন্মদিনের পার্টি</span></option>
+                  <option value="other"><span class="lang-en">Other Celebration</span><span class="lang-bn">অন্যান্য উদযাপন</span></option>
+                </select>
+                <input type="number" placeholder="Expected guests / আনুমানিক অতিথি" class="border border-[#E8D5A5] rounded-xl px-5 py-3 bg-[#FEFAF5] focus:ring-2 focus:ring-[#C5A059] outline-none">
+              </div>
+              <textarea rows="3" placeholder="Special requests or message / বিশেষ অনুরোধ বা বার্তা" class="w-full border border-[#E8D5A5] rounded-xl px-5 py-3 bg-[#FEFAF5] resize-none mb-5 focus:ring-2 focus:ring-[#C5A059] outline-none"></textarea>
+              <button type="submit" class="bg-[#C5A059] w-full py-4 rounded-xl text-white font-bold text-lg shadow-md hover:bg-[#a47c42] transition-all"><span class="lang-en">Send Inquiry →</span><span class="lang-bn">অনুসন্ধান পাঠান →</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#2D2B2A] py-12 border-t border-[#C5A059]/30">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="text-2xl font-serif font-bold text-white">Crystal <span class="text-[#C5A059]">Center</span></div>
+        <p class="text-stone-400 text-sm mt-4">© 2022-2025 Crystal Community Center. <span class="lang-en">Where celebrations turn into legacy.</span><span class="lang-bn">যেখানে উদযাপন হয়ে ওঠে অমূল্য স্মৃতি।</span></p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Mobile menu functionality
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    
+    function toggleMenu(open) { 
+      if(open) {
+        mobileMenu.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileMenu.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+      }
+    }
+    
+    menuBtn?.addEventListener('click', () => toggleMenu(true));
+    closeMenuBtn?.addEventListener('click', () => toggleMenu(false));
+    document.querySelectorAll('#mobileMenu a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+    
+    // Scroll effect for navbar
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('navbar');
+      if(window.scrollY > 20) {
+        header.classList.add('shadow-lg', 'bg-[#FDFBF7]/90');
+      } else {
+        header.classList.remove('shadow-lg', 'bg-[#FDFBF7]/90');
+      }
+    });
+    
+    // Language toggle functionality
+    let lang = 'en';
+    const langToggle = document.getElementById('langToggle');
+    
+    function setLanguage(language) {
+      lang = language;
+      document.body.setAttribute('data-lang', language);
+      langToggle.innerHTML = language === 'en' ? '<span class="lang-en">বাংলা</span><span class="lang-bn">English</span>' : '<span class="lang-en">বাংলা</span><span class="lang-bn">English</span>';
+    }
+    
+    langToggle?.addEventListener('click', () => {
+      const newLang = lang === 'en' ? 'bn' : 'en';
+      setLanguage(newLang);
+    });
+    
+    // Set initial language
+    setLanguage('en');
+  </script>
+</body>
+</html>
