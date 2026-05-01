@@ -1,9 +1,11 @@
 "use client";
 
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import { useAppContext } from "@/context/AppContext";
 import CustomerGallery from "@/components/CustomerGallery";
 import VideoReels from "@/components/VideoReels";
+import { sendEmail } from "./actions";
 
 /* ── Inline SVG icons (no emoji, no heroicons sizing issues) ── */
 const IconPin = () => (
@@ -68,6 +70,28 @@ const programIcons: Record<string, React.ReactNode> = {
 
 export default function Home() {
   const { t, lang } = useAppContext();
+
+  // ── Contact Form Logic ──
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const handleForm = async (formData: FormData) => {
+    setIsSubmitting(true);
+    setStatus("idle");
+    
+    try {
+      const result = await sendEmail(formData);
+      if (result.success) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <main style={{ minHeight: "100vh", backgroundColor: "var(--bg-base)" }}>
@@ -439,18 +463,26 @@ export default function Home() {
               <h3 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1.05rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: 20 }}>
                 {lang === "en" ? "Send us a message" : "আমাদের একটি বার্তা পাঠান"}
               </h3>
-              <form style={{ display: "flex", flexDirection: "column", gap: 12 }} onSubmit={(e) => e.preventDefault()}>
-                <input className="input-field" type="text" placeholder={t.contact.formName} />
-                <input className="input-field" type="email" placeholder={t.contact.formEmail} />
+              <form action={handleForm} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                <input name="name" className="input-field" type="text" placeholder={t.contact.formName} required />
+                <input name="email" className="input-field" type="email" placeholder={t.contact.formEmail} required />
                 <textarea
+                  name="message"
                   className="input-field"
                   placeholder={t.contact.formMessage}
                   rows={4}
+                  required
                   style={{ resize: "vertical", fontFamily: "'DM Sans', sans-serif" }}
                 />
-                <button type="submit" className="btn-primary" style={{ width: "100%", justifyContent: "center" }}>
-                  {t.contact.formSubmit}
+                <button 
+                  type="submit" 
+                  className="btn-primary" 
+                  disabled={isSubmitting || status === "success"}
+                  style={{ width: "100%", justifyContent: "center" }}
+                >
+                  {isSubmitting ? "Sending..." : status === "success" ? "Message Sent!" : t.contact.formSubmit}
                 </button>
+                {status === "error" && <p style={{ color: "#ff4d4d", fontSize: "0.85rem", marginTop: 8 }}>Something went wrong. Please try again.</p>}
               </form>
             </div>
 
