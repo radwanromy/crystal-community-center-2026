@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode, useMemo } from "react";
 import en from "../locales/en.json";
 import bn from "../locales/bn.json";
 
@@ -20,14 +20,20 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<Language>("bn");
   const [isTTSEnabled, setIsTTSEnabled] = useState(false);
-  const [t, setT] = useState(en);
+
+  // ✅ Fix: Derived state. 
+  // We calculate 't' automatically whenever 'lang' changes without using an Effect.
+  const t = useMemo(() => (lang === "en" ? en : bn), [lang]);
 
   useEffect(() => {
-    setT(lang === "en" ? en : bn);
-    if (typeof window !== "undefined") window.speechSynthesis.cancel();
+    // We keep the effect only for external side effects like the Browser API
+    if (typeof window !== "undefined") {
+      window.speechSynthesis.cancel();
+    }
   }, [lang]);
 
   const toggleLang = () => setLang((prev) => (prev === "en" ? "bn" : "en"));
+  
   const toggleTTS = () => {
     setIsTTSEnabled(!isTTSEnabled);
     if (typeof window !== "undefined") window.speechSynthesis.cancel();
