@@ -40,7 +40,7 @@ export default function VideoReels({ videos = defaultVideos }: VideoReelsProps) 
   const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const isScrollingRef = useRef(false);
 
   const text = {
@@ -73,17 +73,17 @@ export default function VideoReels({ videos = defaultVideos }: VideoReelsProps) 
 
   // Audio & Playback Management
   useEffect(() => {
-    Object.entries(videoRefs.current).forEach(([id, video]) => {
+    videoRefs.current.forEach((video, idx) => {
       if (!video) return;
 
-      if (id === activeIndex.toString()) {
+      if (idx === activeIndex) {
         video.muted = false; // Enable sound for the focused video
         video.play().catch(() => console.log("Autoplay blocked by browser"));
-        setPlayingStates(prev => ({ ...prev, [id]: true }));
+        setPlayingStates(prev => ({ ...prev, [idx]: true }));
       } else {
         video.pause();
         video.muted = true; // Mute all background videos
-        setPlayingStates(prev => ({ ...prev, [id]: false }));
+        setPlayingStates(prev => ({ ...prev, [idx]: false }));
       }
     });
   }, [activeIndex]);
@@ -94,7 +94,7 @@ export default function VideoReels({ videos = defaultVideos }: VideoReelsProps) 
       scrollToIndex(index);
     } else {
       // If clicking the already centered video, toggle play/pause
-      const video = videoRefs.current[index.toString()];
+      const video = videoRefs.current[index];
       if (video) {
         if (video.paused) {
           video.play();
@@ -109,7 +109,7 @@ export default function VideoReels({ videos = defaultVideos }: VideoReelsProps) 
 
   const toggleMute = (e: React.MouseEvent, index: number) => {
     e.stopPropagation();
-    const video = videoRefs.current[index.toString()];
+    const video = videoRefs.current[index];
     if (video) {
       video.muted = !video.muted;
       // Force a re-render to update the icon
