@@ -79,3 +79,17 @@ Google's official guidance (https://support.google.com/business/answer/3038177?h
 | Review requests | Prepared, not sent | Actual owner-generated URL: https://g.page/r/CYccdUiTNUXKEBM/review |
 
 Final Google Rich Results code test detected two valid items: one local business and one organization. The sole non-critical issue is optional `priceRange`; it is deliberately omitted because no verified prices were supplied. Schema.org reports zero errors and zero warnings. Valid markup does not guarantee that Google will display a rich result.
+
+## Delivery and access handoff
+
+- Pull request: https://github.com/radwanromy/crystal-community-center-2026/pull/1 (draft, against main).
+- Branch: `seo/crystal-community-center-local-optimization`.
+- Implementation commit: `d19abb617edb4af5096686d410e5112f34274092` (33 changed files).
+- The Bengali Maps name correction received Google's thank-you confirmation: an email will be sent after the suggestion is reviewed. It is submitted/pending, not claimed publicly approved.
+- Existing repository Vercel integration automatically created branch previews after the PR. No manual production deployment was performed.
+- Main project's preview: https://crystal-community-center-2026-git-s-91b84e-radwanromys-projects.vercel.app . Opening it redirects to “Log in to Vercel.” User sign-in is required to complete preview desktop/mobile QA, image/navigation interaction checks, screenshots and performance measurement. Access controls were not changed.
+- No merge, DNS change, paid action, promotional publication, review-response publication or customer messaging was performed.
+
+Changed source/configuration: `.github/workflows/quality.yml`, `app/actions.ts`, `app/globals.css`, `app/layout.tsx`, `app/page.tsx`, `app/robots.ts`, `app/sitemap.ts`, `next.config.ts`, `src/components/LocalDetails.tsx`, `src/components/Navbar.tsx`, `src/components/VideoReels.tsx`, `src/context/AppContext.tsx`, `src/lib/venue.ts`, `src/locales/bn.json`, `src/locales/en.json`.
+
+Deliverable documentation: `docs/local-seo-implementation.md`, `docs/local-seo-content.md`, `docs/image-provenance.json`. New media: one genuine-photo OG crop and 14 WebP copies under `public/venue/`; their individual paths are in the image manifest.
