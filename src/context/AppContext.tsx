@@ -21,11 +21,12 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<Language>("bn");
   const [isTTSEnabled, setIsTTSEnabled] = useState(false);
 
-  // ✅ Fix: Derived state. 
+  // ✅ Fix: Derived state.
   // We calculate 't' automatically whenever 'lang' changes without using an Effect.
   const t = useMemo(() => (lang === "en" ? en : bn), [lang]);
 
   useEffect(() => {
+    document.documentElement.lang = lang;
     // We keep the effect only for external side effects like the Browser API
     if (typeof window !== "undefined") {
       window.speechSynthesis.cancel();
@@ -33,7 +34,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   }, [lang]);
 
   const toggleLang = () => setLang((prev) => (prev === "en" ? "bn" : "en"));
-  
+
   const toggleTTS = () => {
     setIsTTSEnabled(!isTTSEnabled);
     if (typeof window !== "undefined") window.speechSynthesis.cancel();
@@ -45,7 +46,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = lang === "en" ? "en-US" : "bn-BD";
-    
+
     const voices = window.speechSynthesis.getVoices();
     const voice = voices.find((v) => v.lang.includes(lang === "en" ? "en" : "bn"));
     if (voice) utterance.voice = voice;

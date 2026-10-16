@@ -229,3 +229,8 @@ p { line-height: 1.75; color: var(--text-secondary); }
   outline: 2px solid var(--gold-primary);
   outline-offset: 3px;
 }
+/* Keyboard access and narrow-screen contact layouts. */
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid #806000; outline-offset: 4px; }
+section[id] { scroll-margin-top: 100px; }
+address a { overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }

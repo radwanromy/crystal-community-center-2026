@@ -1,5 +1,8 @@
 "use client";
 
+import Image from "next/image";
+import LocalDetails from "@/components/LocalDetails";
+import { venue } from "@/lib/venue";
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import { useAppContext } from "@/context/AppContext";
@@ -44,6 +47,8 @@ const IconStar = () => (
   </svg>
 );
 
+const galleryAlts = ["White floral wedding stage with grey seating", "Blue and green decorated event stage", "Illuminated floral stage with sofa seating", "Floral decorated entrance arch", "Pink and blue event stage decoration", "Indoor floral entrance decoration", "Blue-curtain stage and seating", "Green birthday stage decoration", "Corporate seminar stage and speakers", "Community gathering in the auditorium", "Gaye Holud stage with red and green backdrop", "Celebration cake and floral stage", "Floral canopy and decorated seating", "Birthday celebration stage"].map(text => `${text} at Crystal Community Center, Gobindaganj`);
+
 const programIcons: Record<string, React.ReactNode> = {
   wedding: (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -78,7 +83,7 @@ export default function Home() {
   const handleForm = async (formData: FormData) => {
     setIsSubmitting(true);
     setStatus("idle");
-    
+
     try {
       const result = await sendEmail(formData);
       if (result.success) {
@@ -86,7 +91,7 @@ export default function Home() {
       } else {
         setStatus("error");
       }
-    } catch (err) {
+    } catch {
       setStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -135,10 +140,10 @@ export default function Home() {
 
           <h1 style={{
             fontFamily: "'Playfair Display', Georgia, serif",
-            fontSize: "clamp(2.8rem, 7vw, 5rem)",
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
             fontWeight: 700,
             color: "var(--text-primary)",
-            lineHeight: 1.1,
+            lineHeight: 1.35,
             marginBottom: 24,
           }}>
             {t.hero.title}
@@ -184,35 +189,35 @@ export default function Home() {
       <section id="about" style={{ backgroundColor: "var(--bg-elevated)", borderTop: "0.5px solid var(--border-subtle)" }}>
         <div className="section-pad section-inner" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 64, alignItems: "center" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-            <h4 style={{ color: "var(--gold-primary)", fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 4 }}>
+            <p style={{ color: "var(--gold-primary)", fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 4 }}>
               {lang === "en" ? "Our Story" : "আমাদের গল্প"}
-            </h4>
+            </p>
             <h2 className="section-heading">{t.about.title}</h2>
-            
+
             {/* Enhanced About Text with all content */}
             <div style={{ color: "var(--text-secondary)", lineHeight: 1.8, fontSize: "1rem" }}>
               <p style={{ marginBottom: 16 }}>
-                {lang === "en" 
+                {lang === "en"
                   ? "The dream of creating a good community center in our area was planned earlier in 2019. Since then, we were thinking about how to build it in a way so that people feel more comfortable."
                   : "আমাদের এলাকায় একটি ভালো কমিউনিটি সেন্টার তৈরির স্বপ্নটি ২০১৯ সালের শুরুতে পরিকল্পনা করা হয়েছিল। তখন থেকেই আমরা ভাবছিলাম কীভাবে এটি এমনভাবে নির্মাণ করা যায় যাতে মানুষ আরও স্বাচ্ছন্দ্য বোধ করে।"}
               </p>
               <p style={{ marginBottom: 16 }}>
-                {lang === "en" 
+                {lang === "en"
                   ? "Founded in 2022 by Abu Fattab Shah Md Eleas, Crystal Community Center has successfully hosted over 100+ events. Our mission is to provide an elegant, hassle-free environment for all your special occasions."
                   : "আবু ফাত্তাব শাহ মোঃ ইলিয়াস কর্তৃক ২০২২ সালে প্রতিষ্ঠিত, ক্রিস্টাল কমিউনিটি সেন্টার সফলভাবে ১০০টিরও বেশি ইভেন্ট আয়োজন করেছে। আমাদের লক্ষ্য হলো আপনার সমস্ত বিশেষ অনুষ্ঠানের জন্য একটি মার্জিত এবং ঝামেলামুক্ত পরিবেশ প্রদান করা।"}
               </p>
               <p style={{ marginBottom: 16 }}>
-                {lang === "en" 
+                {lang === "en"
                   ? "This community center was created to give people a space where they can organize their dream events more comfortably, with all the necessary amenities to host a successful event."
                   : "এই কমিউনিটি সেন্টারটি মানুষকে একটি স্থান দেওয়ার জন্য তৈরি করা হয়েছে যেখানে তারা তাদের স্বপ্নের অনুষ্ঠান আরও আরামদায়কভাবে আয়োজন করতে পারে, একটি সফল অনুষ্ঠান আয়োজনের জন্য প্রয়োজনীয় সমস্ত সুবিধা সহ।"}
               </p>
               <p style={{ marginBottom: 16 }}>
-                {lang === "en" 
+                {lang === "en"
                   ? "We tried our best to offer as much service as possible to our customers, as their successful event is our main goal."
                   : "আমরা আমাদের গ্রাহকদের সম্ভাব্য সর্বোচ্চ সেবা দেওয়ার চেষ্টা করি, কারণ তাদের সফল অনুষ্ঠানই আমাদের মূল লক্ষ্য।"}
               </p>
               <p style={{ marginBottom: 16 }}>
-                {lang === "en" 
+                {lang === "en"
                   ? "Previously, there was no such place in the area. We have recently added full hall air conditioning to make events more comfortable. The concerns of people's wishes and their benefits were highly prioritized when we built this community center. -- ASM RADWAN"
                   : "পূর্বে এই এলাকায় এমন কোনো স্থান ছিল না। আমরা সম্প্রতি পুরো হল এয়ার কন্ডিশনিং যোগ করেছি যাতে অনুষ্ঠান আরও আরামদায়ক হয়। এই কমিউনিটি সেন্টার নির্মাণের সময় মানুষের ইচ্ছা এবং তাদের সুবিধার বিষয়গুলোকে সর্বোচ্চ অগ্রাধিকার দেওয়া হয়েছে। -- এ এস এম রেদোয়ান"}
               </p>
@@ -240,7 +245,7 @@ export default function Home() {
             aspectRatio: "4/3",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
-            <img
+            <Image width={800} height={600}
               src="/Assets/images/Crystal Community Center.png"
               alt="Crystal Community Center"
               style={{ objectFit: "contain", width: "100%", height: "100%", padding: 32, opacity: 0.85 }}
@@ -253,9 +258,9 @@ export default function Home() {
       <section id="programs" style={{ backgroundColor: "var(--bg-base)", borderTop: "0.5px solid var(--border-subtle)" }}>
         <div className="section-pad section-inner">
           <div style={{ textAlign: "center", marginBottom: 56 }}>
-            <h4 style={{ color: "var(--gold-primary)", fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>
+            <p style={{ color: "var(--gold-primary)", fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>
               {lang === "en" ? "What We Offer" : "আমরা যা অফার করি"}
-            </h4>
+            </p>
             <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 600, color: "var(--text-primary)", margin: "0 auto" }}>
               {t.programs.title}
             </h2>
@@ -298,16 +303,16 @@ export default function Home() {
       <section id="facilities" style={{ backgroundColor: "var(--bg-elevated)", borderTop: "0.5px solid var(--border-subtle)" }}>
         <div className="section-pad section-inner">
           <div style={{ textAlign: "center", marginBottom: 56 }}>
-            <h4 style={{ color: "var(--gold-primary)", fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>
+            <p style={{ color: "var(--gold-primary)", fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>
               {lang === "en" ? "With Crystal" : "ক্রিস্টালের সাথে"}
-            </h4>
+            </p>
             <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 600, color: "var(--text-primary)", margin: "0 auto" }}>
               {t.facilities.title}
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 14 }}>
-            {(["aircon", "auditorium", "rooftop", "prayer", "cafeteria", "cooking", "layout", "washrooms", "extras","airc"] as const).map((fac, i) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 14 }}>
+            {(["aircon", "auditorium", "rooftop", "prayer", "cafeteria", "cooking", "layout", "washrooms", "parking"] as const).map((fac, i) => (
               <div
                 key={fac}
                 style={{
@@ -336,9 +341,9 @@ export default function Home() {
       <section id="gallery" style={{ backgroundColor: "var(--bg-base)", borderTop: "0.5px solid var(--border-subtle)" }}>
         <div className="section-pad section-inner">
           <div style={{ textAlign: "center", marginBottom: 56 }}>
-            <h4 style={{ color: "var(--gold-primary)", fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>
+            <p style={{ color: "var(--gold-primary)", fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>
               {lang === "en" ? "Moments Captured" : "মুহূর্ত বন্দী"}
-            </h4>
+            </p>
             <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 600, color: "var(--text-primary)", marginBottom: 12 }}>
               {t.gallery.title}
             </h2>
@@ -349,20 +354,20 @@ export default function Home() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 16 }}>
             {[
-              "/Assets/images/abf7092c-7023-41cc-8884-176eca442bc7.jpg",
-              "/Assets/images/FB_IMG_1666060235321.jpg",
-              "/Assets/images/8929DA76-3E7C-4DE3-998B-C8760F29A90F.jpg",
-              "/Assets/images/D05FAF1F-8E0F-4851-86D7-7FA3D7D12269.jpg",
-              "/Assets/images/850B0975-B5B7-4858-8287-56C6E1FF9112.jpg",
-              "/Assets/images/90c16596-fc2b-4c38-b770-5c8a242357b3.jpg",
-              "/Assets/images/camera stage.jpg",
-              "/Assets/images/Birth Party.jpg",
-              "/Assets/images/cement_company.jpg",
-              "/Assets/images/eid mahafil.jpg",
-              "/Assets/images/holud setw.jpg",
-              "/Assets/images/cake.jpg",
-              "/Assets/images/Ful.jpg",
-              "/Assets/images/tonni.jpg"
+              "/venue/crystal-gobindaganj-white-floral-wedding-stage.webp",
+              "/venue/crystal-gobindaganj-blue-green-event-stage.webp",
+              "/venue/crystal-gobindaganj-illuminated-floral-stage.webp",
+              "/venue/crystal-gobindaganj-floral-entrance-arch.webp",
+              "/venue/crystal-gobindaganj-pink-blue-stage.webp",
+              "/venue/crystal-gobindaganj-indoor-floral-arch.webp",
+              "/venue/crystal-gobindaganj-blue-curtain-stage.webp",
+              "/venue/crystal-gobindaganj-birthday-stage.webp",
+              "/venue/crystal-gobindaganj-corporate-seminar.webp",
+              "/venue/crystal-gobindaganj-community-gathering.webp",
+              "/venue/crystal-gobindaganj-gaye-holud-stage.webp",
+              "/venue/crystal-gobindaganj-celebration-cake.webp",
+              "/venue/crystal-gobindaganj-floral-canopy.webp",
+              "/venue/crystal-gobindaganj-birthday-celebration.webp"
             ].map((src, i) => (
               <div
                 key={i}
@@ -376,7 +381,7 @@ export default function Home() {
                 onMouseEnter={e => (e.currentTarget.style.borderColor = "var(--gold-primary)")}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = "var(--border-subtle)")}
               >
-                <img src={src} alt={`Event ${i + 1}`} style={{ width: "100%", height: 240, objectFit: "cover", display: "block" }} />
+                <Image width={640} height={480} sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw" src={src} alt={galleryAlts[i]} style={{ width: "100%", height: 240, objectFit: "cover", display: "block" }} />
               </div>
             ))}
             <div style={{
@@ -395,15 +400,16 @@ export default function Home() {
       {/* ── VIDEO REELS ── */}
       <VideoReels />
 
+      <LocalDetails />
       {/* ── CONTACT ── */}
       <section id="contact" style={{ backgroundColor: "var(--bg-elevated)", borderTop: "0.5px solid var(--border-subtle)" }}>
-        <div className="section-pad section-inner" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 56 }}>
+        <div className="section-pad section-inner" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 56 }}>
           {/* Info */}
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             <div>
-              <h4 style={{ color: "var(--gold-primary)", fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>
+              <p style={{ color: "var(--gold-primary)", fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 12 }}>
                 {lang === "en" ? "Get in Touch" : "যোগাযোগ করুন"}
-              </h4>
+              </p>
               <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 600, color: "var(--text-primary)" }}>
                 {t.contact.title}
               </h2>
@@ -417,7 +423,7 @@ export default function Home() {
               ].map(({ icon, text }, i) => (
                 <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start", color: "var(--text-secondary)", fontSize: "0.9rem", lineHeight: 1.6 }}>
                   <span style={{ color: "var(--gold-primary)", marginTop: 1 }}>{icon}</span>
-                  <span>{text}</span>
+                  <span>{i === 1 ? <><a href="tel:+8801915762486">+880 1915-762486</a> / <a href="tel:+8801797944561">+880 1797-944561</a></> : i === 2 ? <a href="mailto:crystalcc2022@gmail.com">{text}</a> : text}</span>
                 </div>
               ))}
 
@@ -458,25 +464,25 @@ export default function Home() {
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <div style={{
               background: "var(--bg-surface)", border: "0.5px solid var(--border-subtle)",
-              borderRadius: "var(--radius-xl)", padding: 75,
+              borderRadius: "var(--radius-xl)", padding: "clamp(20px, 4vw, 40px)",
             }}>
               <h3 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1.05rem", fontWeight: 600, color: "var(--text-primary)", marginBottom: 20 }}>
                 {lang === "en" ? "Send us a message" : "আমাদের একটি বার্তা পাঠান"}
               </h3>
               <form action={handleForm} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <input name="name" className="input-field" type="text" placeholder={t.contact.formName} required />
-                <input name="email" className="input-field" type="email" placeholder={t.contact.formEmail} required />
+                <input aria-label={t.contact.formName} name="name" className="input-field" type="text" placeholder={t.contact.formName} required />
+                <input aria-label={t.contact.formEmail} name="email" className="input-field" type="email" placeholder={t.contact.formEmail} required />
                 <textarea
-                  name="message"
+                  name="message" aria-label={t.contact.formMessage}
                   className="input-field"
                   placeholder={t.contact.formMessage}
                   rows={4}
                   required
                   style={{ resize: "vertical", fontFamily: "'DM Sans', sans-serif" }}
                 />
-                <button 
-                  type="submit" 
-                  className="btn-primary" 
+                <button
+                  type="submit"
+                  className="btn-primary"
                   disabled={isSubmitting || status === "success"}
                   style={{ width: "100%", justifyContent: "center" }}
                 >
@@ -487,14 +493,14 @@ export default function Home() {
             </div>
 
             <div style={{
-              width: "100%", 
+              width: "100%",
               height: 220,
-              borderRadius: "var(--radius-lg)", 
+              borderRadius: "var(--radius-lg)",
               overflow: "hidden",
               border: "0.5px solid var(--border-subtle)",
             }}>
               <iframe
-                src="https://www.google.com/maps?q=Crystal+Community+Center,+Gobindaganj,+Bangladesh&output=embed"
+                src="https://www.google.com/maps?q=25.1463083,89.3889261&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, display: "block" }}
@@ -532,7 +538,7 @@ export default function Home() {
               {lang === "en" ? "CRYSTAL" : "ক্রিস্টাল"}
             </div>
             <p style={{ color: "var(--text-muted)", fontSize: "0.825rem", lineHeight: 1.6, margin: 0 }}>
-              {lang === "en" 
+              {lang === "en"
                 ? "The perfect venue for your cherished moments in Gobindaganj."
                 : "গোবিন্দগঞ্জে আপনার স্মরণীয় মুহূর্তগুলোর জন্য নিখুঁত স্থান।"}
             </p>
@@ -550,15 +556,15 @@ export default function Home() {
               { href: "#gallery", labelEn: "Gallery", labelBn: "গ্যালারি" },
               { href: "#contact", labelEn: "Contact", labelBn: "যোগাযোগ" },
             ].map((item) => (
-              <a 
-                key={item.href} 
-                href={item.href} 
-                style={{ 
-                  fontFamily: "'DM Sans', sans-serif", 
-                  fontSize: "0.85rem", 
-                  color: "var(--text-secondary)", 
-                  textDecoration: "none", 
-                  transition: "color 0.2s" 
+              <a
+                key={item.href}
+                href={item.href}
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "0.85rem",
+                  color: "var(--text-secondary)",
+                  textDecoration: "none",
+                  transition: "color 0.2s"
                 }}
                 onMouseEnter={e => (e.currentTarget.style.color = "var(--gold-primary)")}
                 onMouseLeave={e => (e.currentTarget.style.color = "var(--text-secondary)")}
@@ -573,13 +579,17 @@ export default function Home() {
             <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 4 }}>
               {lang === "en" ? "Contact" : "যোগাযোগ"}
             </div>
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", lineHeight: 1.6, margin: 0 }}>
-              {lang === "en" 
-                ? "Opposite Side of PEKS Eye Hospital, Gobindaganj, Gobindaganj 5740, Gaibandha, Rangpur"
-                : "পেক্স চক্ষু হাসপাতালের বিপরীত দিকে, গোবিন্দগঞ্জ, গোবিন্দগঞ্জ ৫৭৪০, গাইবান্ধা, রংপুর"}
-            </p>
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", margin: 0 }}>+880 1915-762486</p>
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.85rem", margin: 0 }}>crystalcc2022@gmail.com</p>
+            <strong lang="en">Crystal Community Center</strong>
+            <span lang="bn">ক্রিস্টাল কমিউনিটি সেন্টার</span>
+            <address style={{ fontStyle: "normal", fontSize: "0.85rem", lineHeight: 1.8 }}>
+              <p lang="en">{venue.addressEn}</p><p lang="bn">{venue.addressBn}</p>
+              <a href="tel:+8801915762486">+880 1915-762486</a><br />
+              <a href="tel:+8801797944561">+880 1797-944561</a><br />
+              <a href="mailto:crystalcc2022@gmail.com">crystalcc2022@gmail.com</a><br />
+              <a href={venue.url}>www.crystalccbd.site</a>
+            </address>
+            <a href={venue.directions}>Directions / পথনির্দেশ</a>
+            <a href="#contact">Booking enquiry / বুকিং সম্পর্কে জানতে যোগাযোগ করুন</a>
           </div>
         </div>
 
@@ -594,7 +604,7 @@ export default function Home() {
           gap: 8,
         }}>
           <p style={{ color: "var(--text-muted)", fontSize: "0.8rem", margin: 0, textAlign: "center" }}>
-            {lang === "en" 
+            {lang === "en"
               ? `© 2022 – ${new Date().getFullYear()} Crystal Community Center. Developed with Love for the Gobindaganj Community.`
               : `© ২০২২ – ${new Date().getFullYear()} ক্রিস্টাল কমিউনিটি সেন্টার। গোবিন্দগঞ্জ সম্প্রদায়ের জন্য ভালোবাসা দিয়ে তৈরি।`}
           </p>

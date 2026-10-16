@@ -17,21 +17,17 @@ interface VideoReelsProps {
 }
 
 const defaultVideos: Video[] = [
-  { id: "1", src: "/Assets/video/video03.mp4", 
-    thumbnail: "/Assets/video/thum/v3.png", 
-    likes: 1234, views: 12345, title: "Wedding Ceremony" },
-  { id: "2", src: "/Assets/video/video01.mp4", thumbnail: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=300", likes: 2345, views: 23456, title: "Corporate Event" },
-  { id: "3", src: "/Assets/video/video02.mp4", thumbnail: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=300", likes: 3456, views: 34567, title: "Farewell party" },
-  { id: "4", src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFunflies.mp4", thumbnail: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=300", likes: 3456, views: 34567, title: "Birthday Celebration" },
-  { id: "5", src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4", thumbnail: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=300", likes: 4567, views: 45678, title: "Anniversary Party" },
-  { id: "6", src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", thumbnail: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&q=80&w=300", likes: 5678, views: 56789, title: "Conference" },
+  { id: "1", src: "/Assets/video/video03.mp4", thumbnail: "/Assets/video/thum/v3.png", likes: 0, views: 0, title: "Crystal venue moments" },
+  { id: "2", src: "/Assets/video/video01.mp4", likes: 0, views: 0, title: "Inside Crystal Community Center" },
+  { id: "3", src: "/Assets/video/video02.mp4", likes: 0, views: 0, title: "Events at Crystal" },
 ];
 
 export default function VideoReels({ videos = defaultVideos }: VideoReelsProps) {
   const { lang } = useAppContext();
+  const [mutedStates, setMutedStates] = useState<Record<number, boolean>>({});
   const [activeIndex, setActiveIndex] = useState(0);
   const [playingStates, setPlayingStates] = useState<{ [key: string]: boolean }>({});
-  const [likes, setLikes] = useState<{ [key: string]: number }>(() => {
+  const [, setLikes] = useState<{ [key: string]: number }>(() => {
     const initial: { [key: string]: number } = {};
     videos.forEach(v => { initial[v.id] = v.likes; });
     return initial;
@@ -77,7 +73,7 @@ export default function VideoReels({ videos = defaultVideos }: VideoReelsProps) 
       if (!video) return;
 
       if (idx === activeIndex) {
-        video.muted = false; // Enable sound for the focused video
+        video.muted = true; // Keep autoplay silent until the visitor enables sound
         video.play().catch(() => console.log("Autoplay blocked by browser"));
         setPlayingStates(prev => ({ ...prev, [idx]: true }));
       } else {
@@ -112,6 +108,7 @@ export default function VideoReels({ videos = defaultVideos }: VideoReelsProps) 
     const video = videoRefs.current[index];
     if (video) {
       video.muted = !video.muted;
+      setMutedStates(prev => ({ ...prev, [index]: video.muted }));
       // Force a re-render to update the icon
       setPlayingStates(prev => ({ ...prev }));
     }
@@ -189,12 +186,12 @@ export default function VideoReels({ videos = defaultVideos }: VideoReelsProps) 
                     onMouseLeave={() => setHoveredVideo(null)}
                   >
                     <video
-                      ref={el => { videoRefs.current[index.toString()] = el; }}
+                      ref={el => { videoRefs.current[index] = el; }}
                       src={video.src}
                       poster={video.thumbnail}
                       loop
                       playsInline
-                      muted={!isActive}
+                      muted preload="none" controls
                       style={{ width: "100%", height: "100%", objectFit: "cover" }}
                     />
 
@@ -230,7 +227,7 @@ export default function VideoReels({ videos = defaultVideos }: VideoReelsProps) 
                       </button>
 
                       <button onClick={(e) => toggleMute(e, index)} style={{ background: "rgba(0,0,0,0.4)", border: "none", color: "white", width: 36, height: 36, borderRadius: "50%", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        {videoRefs.current[index]?.muted ? "🔇" : "🔊"}
+                        {(mutedStates[index] ?? true) ? "🔇" : "🔊"}
                       </button>
                     </div>
                   </div>

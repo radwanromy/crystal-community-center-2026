@@ -125,6 +125,8 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
+            aria-label={lang === "en" ? "Toggle navigation" : "মেনু খুলুন বা বন্ধ করুন"}
+            aria-expanded={isMenuOpen}
             className="lg:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             style={{ background: "none", border: "none", cursor: "pointer", padding: 4 }}
