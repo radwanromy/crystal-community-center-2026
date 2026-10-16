@@ -10,8 +10,8 @@
     "ttsOff": "🔈 Read on Hover"
   },
   "hero": {
-    "title": "Crystal Community Center",
-    "subtitle": "The Perfect Venue for Your Cherished Moments",
+    "title": "Crystal Community Center — Wedding Venue in Gobindaganj, Gaibandha",
+    "subtitle": "AC Wedding & Event Venue in Gobindaganj, Gaibandha, Bangladesh",
     "mission": "Established in 2022, we provide premium facilities for weddings, meetings, and celebrations in the heart of Gobindaganj.",
     "cta1": "View Facilities",
     "cta2": "Book Now"
@@ -24,17 +24,17 @@
   "programs": {
     "title": "Programs & Services",
     "wedding": "Weddings",
-    "weddingDesc": "Complete wedding venue services with customizable decoration.",
+    "weddingDesc": "Venue for weddings, Gaye Holud, Mehendi, receptions and engagements. Contact us to discuss your arrangements.",
     "meeting": "Meetings",
     "meetingDesc": "Professional setups for corporate meetings and seminars.",
     "conference": "Conferences",
-    "conferenceDesc": "Large scale conference facilities with audio-visual support.",
+    "conferenceDesc": "Auditorium for conferences, training sessions and organizational meetings in Gobindaganj.",
     "celebration": "Celebrations",
     "celebrationDesc": "Birthdays, anniversaries, and special milestone events."
   },
   "facilities": {
-    "title": "Our Facilities",    
-    "aircon": "Full Hall Air Conditioning — climate-controlled comfort throughout the entire venue.",
+    "title": "Our Facilities",
+    "aircon": "Air-conditioned main auditorium.",
     "auditorium": "Main Auditorium (350 Seats)",
     "rooftop": "Spacious Rooftop Area",
     "prayer": "Masjid (In front of center)",
@@ -43,7 +43,8 @@
     "layout": "3rd Floor: Main Hall, Stages, Reception. 4th Floor: Rooftop, Cooking.",
     "washrooms": "4 Washrooms (2 on 3rd floor, 2 on 4th floor)",
     "extras": "Ample Storage, Large Utensils included. Decoration available.",
-    "airc": " Total Air Conditioning Capacity of Cooling (BTU)：16,800."
+    "airc": " Total Air Conditioning Capacity of Cooling (BTU)：16,800.",
+    "parking": "Dedicated car parking; contact us about arrangements for your event."
   },
   "gallery": {
     "title": "Photo Gallery",
@@ -51,10 +52,10 @@
   },
   "contact": {
     "title": "Contact Us",
-    "address": "Opposite Side of PEKS Eye Hospital, Gobindaganj, Gobindaganj- 5740, District: Gaibandha, Division: Rangpur, Bangladesh",
+    "address": "Opposite Pex Eye Hospital, Gobindaganj 5740, Gaibandha District, Rangpur Division, Bangladesh",
     "phone": "+880 1915-762486 / +880 1797-944561",
     "email": "crystalcc2022@gmail.com",
-    "hours": "Opening Hours: 24/7",
+    "hours": "Call to confirm visiting times and event availability.",
     "formName": "Name",
     "formEmail": "Email",
     "formMessage": "Message",
